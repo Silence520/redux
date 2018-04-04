@@ -10,6 +10,10 @@
 
 * Stack reconcile 会深度优先遍历所有的 Virtual DOM 节点，进行Diff。它一定要等整棵 Virtual DOM 计算完成之后，才将任务出栈释放主线程所以，在浏览器主线程被 React更新状态任务占据的时候，用户与浏览器进行任何的交互都不能得到反馈，只有等到任务结束，才能突然得到浏览器的响应。
 * react16 :为解决setState 阻塞 而 React Fiber   ReactDOMFiber.render();
+* Reactdomfiber.render(Fiberexample/>, document. getelementbyid('app-container')
+* Reconciler就是我们所说的Virtul DOM,用于计算新老∨iew的差异。React16之前的 Reconciler叫叫 Stack reconciler。 Fiber是 React的新 reconciler。
+* Renderer则是和平台相关的代码,负责将∨ew的变化渲染到不同的平台上 DOM、 Canvas、 Native、VR、 Webgl等等平台都有自己的 renderer。我们
+可以看出 reconciler是Reac的核心代码,是各个平台共用的。因此这次 React的 reconciler更新到 Fiber架构是一次重量级的核心架构的更换
 
 ### Fiber
 * Fiber 是一种轻量的执行线程，同线程一样共享定址空间，线程靠系统调度，并且是抢占式多任务处理，Fiber 则是自调用，协作式多任务处理。
@@ -18,9 +22,9 @@
 * 首先，使用协作式多任务处理任务。将原来的整个 Virtual DOM 的更新任务拆分成一个个小的任务。每次做完一个小任务之后，放弃一下自己的执行将主线程空闲出来，看看有没有其他的任务。如果有的话，就暂停本次任务，执行其他的任务，如果没有的话，就继续下一个任务。
 
 #### Fiber整个页面更新并重渲染过程分为两个阶段。
+* 由 reconcile和 renderer两个概念引出的是 phase的概念。 Phase指的是Reac组件渲染时的阶段
 >* Reconcile 阶段。此阶段中，依序遍历组件，通过diff 算法，判断组件是否需要更新，给需要更新的组件加上tag。遍历完之后，将所有带有tag的组件加到一个数组中。这个阶段的任务可以被打断。
 >* Commit 阶段。根据在 Reconcile 阶段生成的数组，遍历更新DOM，这个阶段需要一次性执行完。如果是在其他的渲染环境 -- Native，硬件，就会更新对应的元素。
-
 
 ## redux
 * Web 应用是一个状态机，视图与状态是一一对应的。
@@ -34,3 +38,13 @@
 >* store.subscribe() 注册state变化监听
 >*  createStore(reducer,[initialstate]) 创建
 > Redux 规定， 一个 State 对应一个 View。只要 State 相同，View 就相同。你知道 State，就知道 View 是什么样，反之亦然。
+
+
+
+
+
+
+
+
+
+
