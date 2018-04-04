@@ -26,9 +26,15 @@
 >* Reconcile 阶段。此阶段中，依序遍历组件，通过diff 算法，判断组件是否需要更新，给需要更新的组件加上tag。遍历完之后，将所有带有tag的组件加到一个数组中。这个阶段的任务可以被打断。
 >* Commit 阶段。根据在 Reconcile 阶段生成的数组，遍历更新DOM，这个阶段需要一次性执行完。如果是在其他的渲染环境 -- Native，硬件，就会更新对应的元素。
 
-## redux
+##  flux
 * Web 应用是一个状态机，视图与状态是一一对应的。
 *  所有的状态，保存在一个对象里面。
+
+view :视图层
+Action：动作
+dispatcher：派发起
+store：数据             
+
 
 ### 应用
 * Store 就是保存数据的地方，你可以把它看成一个容器。整个应用只能有一个 Store。
@@ -38,6 +44,16 @@
 >* store.subscribe() 注册state变化监听
 >*  createStore(reducer,[initialstate]) 创建
 > Redux 规定， 一个 State 对应一个 View。只要 State 相同，View 就相同。你知道 State，就知道 View 是什么样，反之亦然。
+
+![fllux](./img/flux.png)
+![fllux](./img/flux2.png)
+
+## Redux
+
+![fllux](./img/redux.png)
+![fllux](./img/redux2.png)
+![fllux](./img/redux3.png)
+![fllux](./img/redux4.png)
 
 
 
