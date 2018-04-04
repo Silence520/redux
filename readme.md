@@ -1,7 +1,12 @@
 ## react && redux 浅析
+* React 本身只涉及UI层 如果搭建大型应用，必须搭配一个前端框架
+* Flux 是一种架构思想 ，专门解决软件结构的问题，它跟mvc架构是同一类东西，更加简单清晰
+* 批处理：批处理就是对某对象进行批量的处理，通常被认为是一种简化的脚本语言
+* 事务： 一个事务是一个不可分割的工作单位，事务中包括的诸操作要么都做，要么都不做 , react的setState同步线程执行
 
-批处理
-事务： 同步线程执行
+#### setState执行
+![react](./img/React.png)
+
 
 * Stack reconcile 会深度优先遍历所有的 Virtual DOM 节点，进行Diff。它一定要等整棵 Virtual DOM 计算完成之后，才将任务出栈释放主线程所以，在浏览器主线程被 React更新状态任务占据的时候，用户与浏览器进行任何的交互都不能得到反馈，只有等到任务结束，才能突然得到浏览器的响应。
 * react16 :为解决setState 阻塞 而 React Fiber   ReactDOMFiber.render();
@@ -15,3 +20,17 @@
 #### Fiber整个页面更新并重渲染过程分为两个阶段。
 >* Reconcile 阶段。此阶段中，依序遍历组件，通过diff 算法，判断组件是否需要更新，给需要更新的组件加上tag。遍历完之后，将所有带有tag的组件加到一个数组中。这个阶段的任务可以被打断。
 >* Commit 阶段。根据在 Reconcile 阶段生成的数组，遍历更新DOM，这个阶段需要一次性执行完。如果是在其他的渲染环境 -- Native，硬件，就会更新对应的元素。
+
+
+## redux
+* Web 应用是一个状态机，视图与状态是一一对应的。
+*  所有的状态，保存在一个对象里面。
+
+### 应用
+* Store 就是保存数据的地方，你可以把它看成一个容器。整个应用只能有一个 Store。
+
+>* store.getState() 获取state
+>* store.dispatch() 触发state
+>* store.subscribe() 注册state变化监听
+>*  createStore(reducer,[initialstate]) 创建
+> Redux 规定， 一个 State 对应一个 View。只要 State 相同，View 就相同。你知道 State，就知道 View 是什么样，反之亦然。
