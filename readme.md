@@ -56,6 +56,8 @@ store：数据
 ![fllux](./img/redux4.png)
 
 
+装饰器。mobx
+
 
 
 

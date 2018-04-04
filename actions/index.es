@@ -27,5 +27,5 @@ export function changeyellow(){
 }
 
 export function changered(){
-  return {type:lights.CHANGE_RED}
+    return {type:lights.CHANGE_RED}
 }
