@@ -16,7 +16,7 @@
 可以看出 reconciler是Reac的核心代码,是各个平台共用的。因此这次 React的 reconciler更新到 Fiber架构是一次重量级的核心架构的更换
 
 ### 生命周期
-![fllux](./img/life.png)
+![fllux](./img/life.jpg)
 
 * getDefaultProps()  设置默认的props，也可以用dufaultProps设置组件的默认属性.
 * getInitialState()  在使用es6的class语法时是没有这个钩子函数的，可以直接在constructor中定义this.state。此时可以访问this.props.
